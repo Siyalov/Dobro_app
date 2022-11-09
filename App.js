@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Button } from '@rneui/themed';
 import Home from "./pages/home";
 import Form from "./pages/form";
+import Login from "./pages/login";
 import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -15,6 +16,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="home" options={{ title: 'Начальная страница', }} component={Home} />
         <Stack.Screen name="form" options={{ title: 'Обратиться за помощью', }} component={Form} />
+        <Stack.Screen name="login" options={{ title: 'Вход', }} component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );

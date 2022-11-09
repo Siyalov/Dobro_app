@@ -29,7 +29,9 @@ export default function Home({ navigation }) {
                style={{ paddingRight: 16 }}
                onPress={() => navigation.navigate('form')}
             />
-            <Button radius={'md'} title={"Стать \nволонтером"} />
+            <Button radius={'md'} title={"Стать \nволонтером"}
+               onPress={() => navigation.navigate('login')}
+            />
          </Row>
 
          <StatusBar style="auto" />

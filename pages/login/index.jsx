@@ -11,6 +11,7 @@ export default function Form({ navigation, route }) {
    console.log('Form');
    const [name, setName] = useState('');
    const [helpRequest, setHelpRequest] = useState('');
+   const [phone, setPhone] = useState('');
    const onAddClick = () => {
       const client = { name, phone, city, bio, };
       navigation.navigate('Clients', { newClient: client });
@@ -22,27 +23,34 @@ export default function Form({ navigation, route }) {
    // https://reactnavigation.org/docs/params/
    return (
       <>
-         <Text h2 style={{ textAlign: 'center' }}>Обратиться за помощью</Text>
+         <Text h2 style={{ textAlign: 'center' }}>Чем Вы можете помочь?</Text>
          <InputField
-            head="Имя"
+            head="Имя/Организация"
             placeholder="Введите имя"
             info="Вы должны дать нам понять как вас зовут."
             onChangeValue={setName}
             value={name}
          />
          <InputField
-            head="Чем вам помочь"
-            placeholder="Введите вашу потребность"
-            info="Расскажите, что вам нужно."
+            head="Номер телефона"
+            placeholder="+358 0 000 000"
+            info="Как с вами можно связаться?"
+            onChangeValue={setPhone}
+            value={phone}
+         />
+         <InputField
+            head="Чем вы можете помочь беженцам"
+            placeholder="Введите информацию о возможной помощи"
+            info="Расскажите, чем вы можете помочь"
             onChangeValue={setHelpRequest}
             value={helpRequest}
             multiline={true}
             numberOfLines={4}
          />
 
-         <Text>Обратиться за помощью</Text>
+         {/* <Text>Обратиться за помощью</Text> */}
          <Button
-            title={"Обратиться \nза помощью"}
+            title={"Отправить \nинформацию"}
             radius={'md'}
             style={{ padding: 16 }}
             onPress={() => navigation.navigate('home')}
