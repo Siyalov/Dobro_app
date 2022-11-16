@@ -6,7 +6,7 @@ import { InputField } from "../../components/InputField";
 // import InputField
 
 
-export default function Form({ navigation, route }) {
+export default function Form({ navigation }) {
 
    console.log('Form');
    const [name, setName] = useState('');

@@ -7,6 +7,7 @@ import Login from "./pages/login";
 import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import UserRequests from "./pages/userRequests";
 
 const Stack = createStackNavigator()
 
@@ -17,6 +18,7 @@ export default function App() {
         <Stack.Screen name="home" options={{ title: 'Начальная страница', }} component={Home} />
         <Stack.Screen name="form" options={{ title: 'Обратиться за помощью', }} component={Form} />
         <Stack.Screen name="login" options={{ title: 'Вход', }} component={Login} />
+        <Stack.Screen name="userRequests" options={{ title: 'Ваши запросы', }} component={UserRequests} />
       </Stack.Navigator>
     </NavigationContainer>
   );

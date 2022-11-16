@@ -6,15 +6,15 @@ import { InputField } from "../../components/InputField";
 // import InputField
 
 
-export default function Form({ navigation, route }) {
+export default function Form({ navigation }) {
 
    console.log('Form');
    const [name, setName] = useState('');
    const [helpRequest, setHelpRequest] = useState('');
    const [phone, setPhone] = useState('');
    const onAddClick = () => {
-      const client = { name, phone, city, bio, };
-      navigation.navigate('Clients', { newClient: client });
+      const client = { name, phone, helpRequest };
+      navigation.navigate('userRequests', { newRequest: client });
    };
 
 
@@ -53,7 +53,7 @@ export default function Form({ navigation, route }) {
             title={"Отправить \nинформацию"}
             radius={'md'}
             style={{ padding: 16 }}
-            onPress={() => navigation.navigate('home')}
+            onPress={onAddClick}
          />
       </>
    );
