@@ -3,6 +3,8 @@ import { ScrollView } from "react-native";
 import { Text, Button } from '@rneui/themed';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RequestPreview from "../../components/RequestPreview";
+import InputField from "../../components/InputField";
+// import InputField
 
 let requests = [];
 
@@ -23,6 +25,7 @@ async function storeRequests() {
 
 export default function UserRequests({ navigation, route }) {
    // todo: add filter
+   const [findState, setFindState] = useState('');
    const [filteredRequests, setFilteredRequests] = useState(requests);
 
    useEffect(() => {
@@ -36,14 +39,33 @@ export default function UserRequests({ navigation, route }) {
          route.params.newRequest = null;
          // save
          storeRequests();
+         onFind(findState);
       }
    }, [])
+   // sarch
+   const onFind = (e) => {
+      setFindState(e);
+      setFilteredRequests(
+         requests.filter((req) => {
+            return (
+               req.name.toLowerCase().includes(e.toLowerCase()) ||
+               req.phone.toLowerCase().includes(e.toLowerCase()) ||
+               req.helpRequest.toLowerCase().includes(e.toLowerCase())
+            );
+         })
+      );
+   };
 
    // https://reactnavigation.org/docs/params/
    return (
       <ScrollView>
          <Text h2 style={{ textAlign: 'center' }}>Ваши заявки</Text>
 
+         <InputField
+            onChangeValue={onFind}
+            value={findState}
+            placeholder={"Поиск"}
+         />
 
          {
             filteredRequests.map((request, i) => <RequestPreview key={i} request={request} />)
