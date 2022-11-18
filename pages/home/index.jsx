@@ -11,7 +11,6 @@ function Row({ children }) {
 }
 
 export default function Home({ navigation }) {
-
    return (
       <View style={{
          flex: 1,
@@ -27,10 +26,10 @@ export default function Home({ navigation }) {
                radius={'md'}
                title={"Обратиться \nза помощью"}
                style={{ paddingRight: 16 }}
-               onPress={() => navigation.navigate('form')}
+               onPress={() => navigation.navigate('refugeesHome')}
             />
             <Button radius={'md'} title={"Стать \nволонтером"}
-               onPress={() => navigation.navigate('login')}
+               onPress={() => navigation.navigate('donatorsHome')}
             />
          </Row>
 
